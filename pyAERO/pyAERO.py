@@ -110,11 +110,12 @@ def GetDataAEROET(station:str,
                     'TOT10', 'TOT15', 'TOT20']
     zenith_radiance = ['ZEN00']
 
-    normalize_water = ['LWN10','LWN10','LWN10']
+    normalize_water = ['LWN10','LWN15','LWN20']
 
     sky_scan_measurements = ['ALM00','HYB00','PPL00',
                              'PPP00','ALP00', 'HYP00']
-    all_vars = inversion+aod_retrieval+zenith_radiance
+    all_vars = inversion+aod_retrieval+zenith_radiance+normalize_water+sky_scan_measurements
+
     if vars in inversion:
         inversions_types = ['ALM15','ALM20','HYB15','HYB20']
         if inversion_type == None: 
@@ -182,3 +183,91 @@ def GetDataAEROET(station:str,
         time.sleep(delay)
         progress_bar.update(1) 
         progress_bar.set_description('Finish Download')
+
+
+import numpy as np 
+import polars as pl
+
+
+
+def compute_AOD_550_polars(df,
+                    columns_aod=['AOD_440nm','AOD_500nm','AOD_675nm'],
+                    wavelenght_nm=[440,500,675],
+                    return_columns=None):
+    ''' 
+    Interpola a AOD para 550 nm usando o modelo log-log quadrático de Eck et al.,
+    (https://doi.org/10.1029/1999JD900923).
+    ln AOD = beta_2x(ln lambda)**2+beta_1x(ln lambda)+beta_0 
+    Parâmetros:
+    - df: DataFrame com colunas de AOD
+    - columns_aod: lista com os nomes das colunas de AOD (ex: ['AOD_440nm', 'AOD_500nm', 'AOD_675nm'])
+    - comprimentos_onda_nm: lista com os comprimentos de onda correspondentes às colunas (ex: [440, 500, 675])
+    Retorna:
+    - Uma cópia do DataFrame com a coluna: 'AOD_550nm'
+    '''
+
+    if type(df) is not pl.dataframe.frame.DataFrame:
+        print('You need open your dataframe with polars')
+    # filtering with none values
+    df = df.with_columns(pl.col(columns_aod).replace(-999.0,None))
+    # calculate log of aod values
+    df_new = df.with_columns([pl.col(column).log().alias(f'ln_{column}')
+                               for column in columns_aod])
+    list_ln_vars = [f'ln_{column}' for column in columns_aod]
+    ln_lambda,ln_target = np.log(wavelenght_nm),np.log(550)
+    df_lns_test = df_new.select(pl.col(list_ln_vars))
+    # interpolate polinomial of second order
+    coef = np.polyfit(ln_lambda,df_lns_test.to_numpy().T,deg=2)
+    ln_aod_550 = coef[0]*ln_target**2 + coef[1]*ln_target + coef[2]
+    # create a new column
+    df_new_2 = df_new.with_columns(pl.Series(name='AOD_550nm',values=np.exp(ln_aod_550)))
+    # returning a exception
+    if return_columns is not None:
+        df_new_2 = df_new_2.select(pl.col(return_columns))
+
+    return df_new_2
+
+def Select(df:pl.dataframe.frame.DataFrame,vars_return:list):
+    return df.select(pl.col(vars_return))
+
+
+PESOS_AERONET = {
+    "440": 1884.0,  
+    "675": 1475.0,  
+    "870": 963.0,   
+    "1020": 733.0   
+}
+
+def calcular_broadband_aeronet(df: pl.DataFrame) -> pl.DataFrame:
+    soma_pesos = sum(PESOS_AERONET.values())
+
+    # Cálculo Ponderado do Single Scattering Albedo
+    ssa_expr = (
+        (pl.col("Single_Scattering_Albedo[440nm]") * PESOS_AERONET["440"]) +
+        (pl.col("Single_Scattering_Albedo[675nm]") * PESOS_AERONET["675"]) +
+        (pl.col("Single_Scattering_Albedo[870nm]") * PESOS_AERONET["870"]) +
+        (pl.col("Single_Scattering_Albedo[1020nm]") * PESOS_AERONET["1020"])
+    ) / soma_pesos
+
+    # Cálculo Ponderado do Fator de Assimetria
+    asy_expr = (
+        (pl.col("Asymmetry_Factor-Total[440nm]") * PESOS_AERONET["440"]) +
+        (pl.col("Asymmetry_Factor-Total[675nm]") * PESOS_AERONET["675"]) +
+        (pl.col("Asymmetry_Factor-Total[870nm]") * PESOS_AERONET["870"]) +
+        (pl.col("Asymmetry_Factor-Total[1020nm]") * PESOS_AERONET["1020"])
+    ) / soma_pesos
+
+    # Cálculo Ponderado do Albedo de Superfície (respeitando a sua string [m])
+    albedo_expr = (
+        (pl.col("Surface_Albedo[440m]") * PESOS_AERONET["440"]) +
+        (pl.col("Surface_Albedo[675m]") * PESOS_AERONET["675"]) +
+        (pl.col("Surface_Albedo[870m]") * PESOS_AERONET["870"]) +
+        (pl.col("Surface_Albedo[1020m]") * PESOS_AERONET["1020"])
+    ) / soma_pesos
+
+    # Retorna o DataFrame original com 3 novas colunas prontas para o libRadtran
+    return df.with_columns([
+        ssa_expr.alias("ssa_broadband"),
+        asy_expr.alias("asy_broadband"),
+        albedo_expr.alias("surface_albedo_broadband")
+    ])
