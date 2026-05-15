@@ -55,3 +55,10 @@ Here are explanation of vars, its necessary use the ***inversion type*** for cho
 | ALL  | All of the above retrievals (SIZ to FLUX) in one file |
 | PFN  | Phase function (available for only all points data format: AVG=10) |
 | U27  | Estimation of Sensitivity to 27 Input Uncertainty Variations (available for only all points data format: AVG=10 and ALM20 and HYB20) |
+
+
+To install only use:
+
+``` bash 
+uv pip install git+https://github.com/fernandoACF28/pyAERO.git
+``` 
