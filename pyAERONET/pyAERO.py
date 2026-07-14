@@ -47,7 +47,7 @@ def RewriteTheFile(path):
     else: print("the dataframe is empty")
     file.close()
 
-def GetDataAEROET(station:str,
+def GetDataAERONET(station:str,
                   start_date:str,
                   end_date:str,
                   vars:str,
