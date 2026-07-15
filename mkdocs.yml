@@ -1,0 +1,31 @@
+site_name: pyAERONET
+
+theme:
+  name: material
+  palette:
+    # Configuração do Modo Claro (Light)
+    - scheme: default
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+
+    # Configuração do Modo Escuro (Dark/Black)
+    - scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+
+plugins:
+  - search          
+  - mkdocs-jupyter
+nav:
+  - Home: index.md
+  - Inversion: inversion.md
+  - How to Install: install.md
+  - Until functions: read.ipynb
+  - User Guide (Download): teste.ipynb
+  - Calculate Broadband variables: broadband.ipynb
