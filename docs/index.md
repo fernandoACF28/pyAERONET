@@ -50,14 +50,3 @@ Os dados de nível 1, são dados brutos, dados de nível 1,5 com filtro de nuven
 | PPP00  | Raw Polarized Principal Plane Sky Scan Radiance and Degree of Polarization |
 | ALP00  | Raw Polarized Almucantar Sky Scan Radiance and Degree of Polarization |
 | HYP00  | Raw Polarized Hybrid Sky Scan Radiance and Degree of Polarization |
-
-
-
-
-## How to do download 
-
-<p style="font-size: 130%; 
-color: #6baf33; 
-font-weight: bold ;"
->Todo este parágrafo será renderizado na cor verde e grande.</p>
-
