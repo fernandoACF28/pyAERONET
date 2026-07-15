@@ -60,5 +60,11 @@ Here are explanation of vars, its necessary use the ***inversion type*** for cho
 To install only use:
 
 ``` bash 
-uv pip install git+https://github.com/fernandoACF28/pyAERO.git
+uv pip install git+https://github.com/fernandoACF28/pyAERONET.git
+``` 
+
+To reinstall:
+
+``` bash 
+uv pip install --upgrade --force-reinstall git+https://github.com/fernandoACF28/pyAERONET.git
 ``` 
