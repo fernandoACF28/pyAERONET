@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../home/">
+      
+      
+        <link rel="next" href="../retrieval/">
       
       
         
@@ -19,7 +23,7 @@
     
     
       
-        <title>Teste - pyAERONET</title>
+        <title>Getting Started - pyAERONET</title>
       
     
     
@@ -70,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#abrindo-arquivo-csv" class="md-skip">
+        <a href="#getting-started" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Teste
+              Getting Started
             
           </span>
         </div>
@@ -252,10 +256,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../getting_started/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -271,6 +302,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Download dos dados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leitura-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leitura dos dados
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -511,6 +584,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -519,10 +594,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#abrindo-arquivo-csv" class="md-nav__link">
+  <a href="#download-dos-dados" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Abrindo arquivo csv
+        Download dos dados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leitura-dos-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leitura dos dados
       
     </span>
   </a>
@@ -546,14 +632,50 @@
 
 
 
-  <h1>Teste</h1>
-
-<h2 id="abrindo-arquivo-csv">Abrindo arquivo csv</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<h1 id="getting-started">Getting Started</h1>
+<p>Aqui vamos ensinar como começar utilizando a biblioteca pyAERONET.
+Primeiro é necessário realizar a instalação da biblioteca, que pode
+ser instalada utilizando gerenciador de pacotes <code>pip</code> ou <code>uv</code>ultraviolet <a href="https://docs.astral.sh/uv/guides/install-python/">[source]</a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pip</label><label for="__tabbed_1_2">uv</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>https://github.com/fernandoACF27/pyAERONET.git
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Sao_Paulo_AOD20.csv&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;AOD_500nm&#39;</span><span class="p">,</span> <span class="s1">&#39;AERONET_Site&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">df_exemplo</span>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>https://github.com/fernandoACF27/pyAERONET.git
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="download-dos-dados">Download dos dados</h2>
+<p>Abaixo está um exemplo de como realizar o download do arquivo <code>csv</code> 
+, ler e processar os dados de aerossóis diretamente no Python <a href="../functions/get_data/"><code>pyAERONET.GetDataAERONET()</code></a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pyAERONET</span>
+</code></pre></div>
+<p><code>pyAERONET</code> é uma classe que contém funções.
+A função para download é 
+<code>GetDataAERONET</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">pyAERONET</span><span class="o">.</span><span class="n">GetDataAERONET</span><span class="p">(</span><span class="n">station</span><span class="o">=</span><span class="s1">&#39;Sao_Paulo&#39;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2010-10-10&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                    <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                    <span class="nb">vars</span><span class="o">=</span><span class="s1">&#39;AOD20&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                    <span class="n">temporal_type</span><span class="o">=</span><span class="s1">&#39;ALL&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                    <span class="n">user_name</span><span class="o">=</span><span class="s1">&#39;user@gmail.br&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Finish Download: 100%|██████████| 3/3 [00:09&lt;00:00,  3.19s/it]
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="leitura-dos-dados">Leitura dos dados</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Sao_Paulo_AOD20.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;AOD_500nm&#39;</span><span class="p">,</span> <span class="s1">&#39;AERONET_Site&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">df_exemplo</span>
 </code></pre></div>
 <div><style>
 .dataframe > thead > tr,

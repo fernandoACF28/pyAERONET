@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../install/">
-      
-      
-        <link rel="next" href="../teste/">
       
       
         
@@ -23,7 +19,7 @@
     
     
       
-        <title>Until functions - pyAERONET</title>
+        <title>Read - pyAERONET</title>
       
     
     
@@ -105,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Until functions
+              Read
             
           </span>
         </div>
@@ -227,7 +223,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../home/" class="md-nav__link">
         
   
   
@@ -254,14 +250,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../inversion/" class="md-nav__link">
+      <a href="../getting_started/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Inversion
+    Getting Started
   
 
     
@@ -281,76 +277,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
+      <a href="../retrieval/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    How to Install
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Until functions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../teste/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    User Guide (Download)
+    Inversion Parameters
   
 
     
@@ -377,7 +311,7 @@
   <span class="md-ellipsis">
     
   
-    Reading the file
+    Some examples
   
 
     
@@ -386,6 +320,171 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../list_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    List Variables in each File
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Functions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/get_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyAERONET.GetDataAERONET
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/calc_broadband/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyAERONET.calcular_broadband_aeronet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/compute_aod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyAERONET.compute_AOD_550_polars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -423,7 +522,7 @@
 
 
 
-  <h1>Until functions</h1>
+  <h1>Read</h1>
 
 <script>
 (function (global, factory) {
@@ -683,7 +782,12 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs")).default;
+    const elkUrl = "https://cdnjs.cloudflare.com/ajax/libs/mermaid-layout-elk/0.1.9/mermaid-layout-elk.esm.min.mjs";
+    if(elkUrl) {
+      const elkLayouts = (await import(elkUrl)).default;
+      mermaid.registerLayoutLoaders(elkLayouts);
+    }
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -780,7 +884,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
      * Post-process to ensure mermaid diagrams contain only valid SVG and XHTML.
      */
     function cleanMermaidSvg(svg) {
-      return svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
+      svg = svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
+      return `${SVG_XML_HEADER}${svg}`;
     }
 
 
@@ -806,6 +911,285 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
       }
       return `<${tag} ${rest}>`;
     }
+
+
+  /**
+   * Named HTML entities with their decimal equivalent codes.
+   *
+   * @see https://www.w3.org/TR/WD-html40-970708/sgml/entities.html
+   * */
+  const HTML_ENTITIES = `<!ENTITY Aacute "&#193;">
+<!ENTITY aacute "&#225;">
+<!ENTITY Acirc "&#194;">
+<!ENTITY acirc "&#226;">
+<!ENTITY acute "&#180;">
+<!ENTITY AElig "&#198;">
+<!ENTITY aelig "&#230;">
+<!ENTITY Agrave "&#192;">
+<!ENTITY agrave "&#224;">
+<!ENTITY alefsym "&#8501;">
+<!ENTITY Alpha "&#913;">
+<!ENTITY alpha "&#945;">
+<!ENTITY amp "&#38;">
+<!ENTITY and "&#8869;">
+<!ENTITY ang "&#8736;">
+<!ENTITY Aring "&#197;">
+<!ENTITY aring "&#229;">
+<!ENTITY asymp "&#8776;">
+<!ENTITY Atilde "&#195;">
+<!ENTITY atilde "&#227;">
+<!ENTITY Auml "&#196;">
+<!ENTITY auml "&#228;">
+<!ENTITY bdquo "&#8222;">
+<!ENTITY Beta "&#914;">
+<!ENTITY beta "&#946;">
+<!ENTITY brvbar "&#166;">
+<!ENTITY bull "&#8226;">
+<!ENTITY cap "&#8745;">
+<!ENTITY Ccedil "&#199;">
+<!ENTITY ccedil "&#231;">
+<!ENTITY cedil "&#184;">
+<!ENTITY cent "&#162;">
+<!ENTITY Chi "&#935;">
+<!ENTITY chi "&#967;">
+<!ENTITY circ "&#710;">
+<!ENTITY clubs "&#9827;">
+<!ENTITY cong "&#8773;">
+<!ENTITY copy "&#169;">
+<!ENTITY crarr "&#8629;">
+<!ENTITY cup "&#8746;">
+<!ENTITY curren "&#164;">
+<!ENTITY dagger "&#8224;">
+<!ENTITY Dagger "&#8225;">
+<!ENTITY darr "&#8595;">
+<!ENTITY dArr "&#8659;">
+<!ENTITY deg "&#176;">
+<!ENTITY Delta "&#916;">
+<!ENTITY delta "&#948;">
+<!ENTITY diams "&#9830;">
+<!ENTITY divide "&#247;">
+<!ENTITY Eacute "&#201;">
+<!ENTITY eacute "&#233;">
+<!ENTITY Ecirc "&#202;">
+<!ENTITY ecirc "&#234;">
+<!ENTITY Egrave "&#200;">
+<!ENTITY egrave "&#232;">
+<!ENTITY empty "&#8709;">
+<!ENTITY emsp "&#8195;">
+<!ENTITY ensp "&#8194;">
+<!ENTITY epsilon "&#949;">
+<!ENTITY Epsilon "&#917;">
+<!ENTITY equiv "&#8801;">
+<!ENTITY Eta "&#919;">
+<!ENTITY eta "&#951;">
+<!ENTITY ETH "&#208;">
+<!ENTITY eth "&#240;">
+<!ENTITY Euml "&#203;">
+<!ENTITY euml "&#235;">
+<!ENTITY exist "&#8707;">
+<!ENTITY fnof "&#402;">
+<!ENTITY forall "&#8704;">
+<!ENTITY frac12 "&#189;">
+<!ENTITY frac14 "&#188;">
+<!ENTITY frac34 "&#190;">
+<!ENTITY frasl "&#8260;">
+<!ENTITY Gamma "&#915;">
+<!ENTITY gamma "&#947;">
+<!ENTITY ge "&#8805;">
+<!ENTITY gt "&#62;">
+<!ENTITY harr "&#8596;">
+<!ENTITY hArr "&#8660;">
+<!ENTITY hearts "&#9829;">
+<!ENTITY hellip "&#8230;">
+<!ENTITY Iacute "&#205;">
+<!ENTITY iacute "&#237;">
+<!ENTITY Icirc "&#206;">
+<!ENTITY icirc "&#238;">
+<!ENTITY iexcl "&#161;">
+<!ENTITY Igrave "&#204;">
+<!ENTITY igrave "&#236;">
+<!ENTITY image "&#8465;">
+<!ENTITY infin "&#8734;">
+<!ENTITY int "&#8747;">
+<!ENTITY Iota "&#921;">
+<!ENTITY iota "&#953;">
+<!ENTITY iquest "&#191;">
+<!ENTITY isin "&#8712;">
+<!ENTITY Iuml "&#207;">
+<!ENTITY iuml "&#239;">
+<!ENTITY Kappa "&#922;">
+<!ENTITY kappa "&#954;">
+<!ENTITY Lambda "&#923;">
+<!ENTITY lambda "&#955;">
+<!ENTITY lang "&#9001;">
+<!ENTITY laquo "&#171;">
+<!ENTITY larr "&#8592;">
+<!ENTITY lArr "&#8656;">
+<!ENTITY lceil "&#8968;">
+<!ENTITY ldquo "&#8220;">
+<!ENTITY le "&#8804;">
+<!ENTITY lfloor "&#8970;">
+<!ENTITY lowast "&#8727;">
+<!ENTITY loz "&#9674;">
+<!ENTITY lrm "&#8206;">
+<!ENTITY lsaquo "&#8249;">
+<!ENTITY lsquo "&#8216;">
+<!ENTITY lt "&#60;">
+<!ENTITY macr "&#175;">
+<!ENTITY mdash "&#8212;">
+<!ENTITY micro "&#181;">
+<!ENTITY middot "&#183;">
+<!ENTITY minus "&#8722;">
+<!ENTITY Mu "&#924;">
+<!ENTITY mu "&#956;">
+<!ENTITY nabla "&#8711;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ndash "&#8211;">
+<!ENTITY ne "&#8800;">
+<!ENTITY ni "&#8715;">
+<!ENTITY not "&#172;">
+<!ENTITY notin "&#8713;">
+<!ENTITY nsub "&#8836;">
+<!ENTITY Ntilde "&#209;">
+<!ENTITY ntilde "&#241;">
+<!ENTITY Nu "&#925;">
+<!ENTITY nu "&#957;">
+<!ENTITY Oacute "&#211;">
+<!ENTITY oacute "&#243;">
+<!ENTITY Ocirc "&#212;">
+<!ENTITY ocirc "&#244;">
+<!ENTITY OElig "&#338;">
+<!ENTITY oelig "&#339;">
+<!ENTITY Ograve "&#210;">
+<!ENTITY ograve "&#242;">
+<!ENTITY oline "&#8254;">
+<!ENTITY Omega "&#937;">
+<!ENTITY omega "&#969;">
+<!ENTITY Omicron "&#927;">
+<!ENTITY omicron "&#959;">
+<!ENTITY oplus "&#8853;">
+<!ENTITY or "&#8870;">
+<!ENTITY ordf "&#170;">
+<!ENTITY ordm "&#186;">
+<!ENTITY Oslash "&#216;">
+<!ENTITY oslash "&#248;">
+<!ENTITY Otilde "&#213;">
+<!ENTITY otilde "&#245;">
+<!ENTITY otimes "&#8855;">
+<!ENTITY Ouml "&#214;">
+<!ENTITY ouml "&#246;">
+<!ENTITY para "&#182;">
+<!ENTITY part "&#8706;">
+<!ENTITY permil "&#8240;">
+<!ENTITY perp "&#8869;">
+<!ENTITY Phi "&#934;">
+<!ENTITY phi "&#966;">
+<!ENTITY Pi "&#928;">
+<!ENTITY pi "&#960;">
+<!ENTITY piv "&#982;">
+<!ENTITY plusmn "&#177;">
+<!ENTITY pound "&#163;">
+<!ENTITY prime "&#8242;">
+<!ENTITY Prime "&#8243;">
+<!ENTITY prod "&#8719;">
+<!ENTITY prop "&#8733;">
+<!ENTITY Psi "&#936;">
+<!ENTITY psi "&#968;">
+<!ENTITY quot "&#34;">
+<!ENTITY radic "&#8730;">
+<!ENTITY rang "&#9002;">
+<!ENTITY raquo "&#187;">
+<!ENTITY rarr "&#8594;">
+<!ENTITY rArr "&#8658;">
+<!ENTITY rceil "&#8969;">
+<!ENTITY rdquo "&#8221;">
+<!ENTITY real "&#8476;">
+<!ENTITY reg "&#174;">
+<!ENTITY rfloor "&#8971;">
+<!ENTITY Rho "&#929;">
+<!ENTITY rho "&#961;">
+<!ENTITY rlm "&#8207;">
+<!ENTITY rsaquo "&#8250;">
+<!ENTITY rsquo "&#8217;">
+<!ENTITY sbquo "&#8218;">
+<!ENTITY Scaron "&#352;">
+<!ENTITY scaron "&#353;">
+<!ENTITY sdot "&#8901;">
+<!ENTITY sect "&#167;">
+<!ENTITY shy "&#173;">
+<!ENTITY Sigma "&#931;">
+<!ENTITY sigma "&#963;">
+<!ENTITY sigmaf "&#962;">
+<!ENTITY sim "&#8764;">
+<!ENTITY spades "&#9824;">
+<!ENTITY sub "&#8834;">
+<!ENTITY sube "&#8838;">
+<!ENTITY sum "&#8721;">
+<!ENTITY sup "&#8835;">
+<!ENTITY sup1 "&#185;">
+<!ENTITY sup2 "&#178;">
+<!ENTITY sup3 "&#179;">
+<!ENTITY supe "&#8839;">
+<!ENTITY szlig "&#223;">
+<!ENTITY Tau "&#932;">
+<!ENTITY tau "&#964;">
+<!ENTITY there4 "&#8756;">
+<!ENTITY Theta "&#920;">
+<!ENTITY theta "&#952;">
+<!ENTITY thetasym "&#977;">
+<!ENTITY thinsp "&#8201;">
+<!ENTITY THORN "&#222;">
+<!ENTITY thorn "&#254;">
+<!ENTITY tilde "&#732;">
+<!ENTITY times "&#215;">
+<!ENTITY trade "&#8482;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY uarr "&#8593;">
+<!ENTITY uArr "&#8657;">
+<!ENTITY Ucirc "&#219;">
+<!ENTITY ucirc "&#251;">
+<!ENTITY Ugrave "&#217;">
+<!ENTITY ugrave "&#249;">
+<!ENTITY uml "&#168;">
+<!ENTITY upsih "&#978;">
+<!ENTITY Upsilon "&#933;">
+<!ENTITY upsilon "&#965;">
+<!ENTITY Uuml "&#220;">
+<!ENTITY uuml "&#252;">
+<!ENTITY weierp "&#8472;">
+<!ENTITY Xi "&#926;">
+<!ENTITY xi "&#958;">
+<!ENTITY Yacute "&#221;">
+<!ENTITY yacute "&#253;">
+<!ENTITY yen "&#165;">
+<!ENTITY Yuml "&#376;">
+<!ENTITY yuml "&#255;">
+<!ENTITY Zeta "&#918;">
+<!ENTITY zeta "&#950;">
+<!ENTITY zwj "&#8205;">
+<!ENTITY zwnj "&#8204;">`.replace(/\n/g, ' ');
+
+  /**
+   * A reasonably strict xml declaration.
+   */
+  const XML_DECL = '<?xml version="1.0" standalone="no"?>';
+
+  /**
+   * The beginning of the XML doctype declaration.
+   */
+  const DOCTYPE_START = `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [`;
+
+  /**
+   * The end of the XML docype declaration.
+   */
+  const DOCTYPE_END = ']>';
+
+  /**
+   * A full header for an SVG XML document.
+   */
+  const SVG_XML_HEADER = `${XML_DECL}
+    ${DOCTYPE_START}${HTML_ENTITIES}${DOCTYPE_END}`;
 
     void Promise.all([...diagrams].map(renderOneMarmaid));
   });
@@ -867,7 +1251,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-1">
@@ -880,11 +1264,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyAERO</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyAERONET</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">import pyAERO
-import pandas as pd</div>
+<div class="clipboard-copy-txt" id="cell-1">import pyAERONET
+import polars as pl</div>
 </div>
 </div>
 </div>
@@ -896,7 +1280,7 @@ import pandas as pd</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-2">
@@ -909,11 +1293,11 @@ import pandas as pd</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'Sao_Paulo_AOD20.csv'</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'Sao_Paulo_AOD20.csv'</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">'time'</span><span class="p">,</span><span class="s1">'AOD_500nm'</span><span class="p">,</span><span class="s1">'Precipitable_Water(cm)'</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">df = pd.read_csv('Sao_Paulo_AOD20.csv',skiprows=7)[:-1]
-df.columns</div>
+<div class="clipboard-copy-txt" id="cell-2">df = pl.read_csv('Sao_Paulo_AOD20.csv')
+df.select(['time','AOD_500nm','Precipitable_Water(cm)']).head(5)</div>
 </div>
 </div>
 </div>
@@ -923,33 +1307,16 @@ df.columns</div>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>Index(['AERONET_Site', 'Date(dd:mm:yyyy)', 'Time(hh:mm:ss)', 'Day_of_Year',
-       'AOD_1640nm', 'AOD_1020nm', 'AOD_870nm', 'AOD_865nm', 'AOD_779nm',
-       'AOD_675nm', 'AOD_667nm', 'AOD_620nm', 'AOD_560nm', 'AOD_555nm',
-       'AOD_551nm', 'AOD_532nm', 'AOD_531nm', 'AOD_510nm', 'AOD_500nm',
-       'AOD_490nm', 'AOD_443nm', 'AOD_440nm', 'AOD_412nm', 'AOD_400nm',
-       'AOD_380nm', 'AOD_340nm', 'Precipitable_Water(cm)', 'AOD_681nm',
-       'AOD_709nm', 'AOD_Empty', 'AOD_Empty.1', 'AOD_Empty.2', 'AOD_Empty.3',
-       'AOD_Empty.4', '440-870_Angstrom_Exponent', '380-500_Angstrom_Exponent',
-       '440-675_Angstrom_Exponent', '500-870_Angstrom_Exponent',
-       '340-440_Angstrom_Exponent', '440-675_Angstrom_Exponent[Polar]',
-       'N[AOD_1640nm]', 'N[AOD_1020nm]', 'N[AOD_870nm]', 'N[AOD_865nm]',
-       'N[AOD_779nm]', 'N[AOD_675nm]', 'N[AOD_667nm]', 'N[AOD_620nm]',
-       'N[AOD_560nm]', 'N[AOD_555nm]', 'N[AOD_551nm]', 'N[AOD_532nm]',
-       'N[AOD_531nm]', 'N[AOD_510nm]', 'N[AOD_500nm]', 'N[AOD_490nm]',
-       'N[AOD_443nm]', 'N[AOD_440nm]', 'N[AOD_412nm]', 'N[AOD_400nm]',
-       'N[AOD_380nm]', 'N[AOD_340nm]', 'N[Precipitable_Water(cm)]',
-       'N[AOD_681nm]', 'N[AOD_709nm]', 'N[AOD_Empty]', 'N[AOD_Empty].1',
-       'N[AOD_Empty].2', 'N[AOD_Empty].3', 'N[AOD_Empty].4',
-       'N[440-870_Angstrom_Exponent]', 'N[380-500_Angstrom_Exponent]',
-       'N[440-675_Angstrom_Exponent]', 'N[500-870_Angstrom_Exponent]',
-       'N[340-440_Angstrom_Exponent]', 'N[440-675_Angstrom_Exponent[Polar]]',
-       'Data_Quality_Level', 'AERONET_Instrument_Number', 'AERONET_Site_Name',
-       'Site_Latitude(Degrees)', 'Site_Longitude(Degrees)',
-       'Site_Elevation(m)&lt;br&gt;'],
-      dtype='object')</pre>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (5, 3)</small><table border="1" class="dataframe"><thead><tr><th>time</th><th>AOD_500nm</th><th>Precipitable_Water(cm)</th></tr><tr><td>str</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>"2010-10-12 12:00:00"</td><td>0.099469</td><td>0.830675</td></tr><tr><td>"2010-10-13 12:00:00"</td><td>0.195643</td><td>1.395453</td></tr><tr><td>"2010-10-14 12:00:00"</td><td>0.676282</td><td>3.012284</td></tr><tr><td>"2010-10-16 12:00:00"</td><td>0.481589</td><td>2.913485</td></tr><tr><td>"2010-10-17 12:00:00"</td><td>0.756076</td><td>3.218981</td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -961,7 +1328,7 @@ df.columns</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-3">
@@ -974,9 +1341,9 @@ df.columns</div>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">pyAERO</span><span class="o">.</span><span class="n">OrganizeTime</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">pyAERONET</span><span class="o">.</span><span class="n">compute_AOD_550_polars</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">'time'</span><span class="p">,</span><span class="s1">'AOD_440nm'</span><span class="p">,</span><span class="s1">'AOD_550nm'</span><span class="p">,</span><span class="s1">'AOD_675nm'</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">pyAERO.OrganizeTime(df)</div>
+<div class="clipboard-copy-txt" id="cell-3">pyAERONET.compute_AOD_550_polars(df).select(['time','AOD_440nm','AOD_550nm','AOD_675nm']).head(5)</div>
 </div>
 </div>
 </div>
@@ -986,318 +1353,16 @@ df.columns</div>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<div>
-<style scoped="">
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
 </style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>time</th>
-<th>AERONET_Site</th>
-<th>Day_of_Year</th>
-<th>AOD_1640nm</th>
-<th>AOD_1020nm</th>
-<th>AOD_870nm</th>
-<th>AOD_865nm</th>
-<th>AOD_779nm</th>
-<th>AOD_675nm</th>
-<th>AOD_667nm</th>
-<th>...</th>
-<th>N[440-675_Angstrom_Exponent]</th>
-<th>N[500-870_Angstrom_Exponent]</th>
-<th>N[340-440_Angstrom_Exponent]</th>
-<th>N[440-675_Angstrom_Exponent[Polar]]</th>
-<th>Data_Quality_Level</th>
-<th>AERONET_Instrument_Number</th>
-<th>AERONET_Site_Name</th>
-<th>Site_Latitude(Degrees)</th>
-<th>Site_Longitude(Degrees)</th>
-<th>Site_Elevation(m)_</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>2010-10-12 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>285.0</td>
-<td>-999.0</td>
-<td>0.053684</td>
-<td>0.061660</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.071906</td>
-<td>-999.0</td>
-<td>...</td>
-<td>13.0</td>
-<td>12.0</td>
-<td>13.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>624.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>1</th>
-<td>2010-10-13 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>286.0</td>
-<td>-999.0</td>
-<td>0.083513</td>
-<td>0.099002</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.128913</td>
-<td>-999.0</td>
-<td>...</td>
-<td>19.0</td>
-<td>19.0</td>
-<td>19.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>624.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>2</th>
-<td>2010-10-14 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>287.0</td>
-<td>-999.0</td>
-<td>0.196527</td>
-<td>0.264021</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.412271</td>
-<td>-999.0</td>
-<td>...</td>
-<td>5.0</td>
-<td>5.0</td>
-<td>5.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>624.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>3</th>
-<td>2010-10-16 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>289.0</td>
-<td>-999.0</td>
-<td>0.165352</td>
-<td>0.213520</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.312290</td>
-<td>-999.0</td>
-<td>...</td>
-<td>5.0</td>
-<td>5.0</td>
-<td>5.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>624.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>4</th>
-<td>2010-10-17 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>290.0</td>
-<td>-999.0</td>
-<td>0.274692</td>
-<td>0.356166</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.516165</td>
-<td>-999.0</td>
-<td>...</td>
-<td>13.0</td>
-<td>13.0</td>
-<td>13.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>624.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>...</th>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr>
-<th>135</th>
-<td>2012-02-06 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>37.0</td>
-<td>-999.0</td>
-<td>0.087201</td>
-<td>0.103616</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.141273</td>
-<td>-999.0</td>
-<td>...</td>
-<td>32.0</td>
-<td>32.0</td>
-<td>32.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>195.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>136</th>
-<td>2012-02-07 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>38.0</td>
-<td>-999.0</td>
-<td>0.060544</td>
-<td>0.073245</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.101994</td>
-<td>-999.0</td>
-<td>...</td>
-<td>41.0</td>
-<td>41.0</td>
-<td>41.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>195.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>137</th>
-<td>2012-02-08 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>39.0</td>
-<td>-999.0</td>
-<td>0.069003</td>
-<td>0.085237</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.124872</td>
-<td>-999.0</td>
-<td>...</td>
-<td>24.0</td>
-<td>24.0</td>
-<td>24.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>195.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>138</th>
-<td>2012-02-09 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>40.0</td>
-<td>-999.0</td>
-<td>0.118727</td>
-<td>0.139900</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.183111</td>
-<td>-999.0</td>
-<td>...</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>195.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-<tr>
-<th>139</th>
-<td>2012-02-10 12:00:00</td>
-<td>Sao_Paulo</td>
-<td>41.0</td>
-<td>-999.0</td>
-<td>0.138735</td>
-<td>0.176048</td>
-<td>-999.0</td>
-<td>-999.0</td>
-<td>0.252839</td>
-<td>-999.0</td>
-<td>...</td>
-<td>3.0</td>
-<td>3.0</td>
-<td>3.0</td>
-<td>0.0</td>
-<td>lev20</td>
-<td>195.0</td>
-<td>Sao_Paulo</td>
-<td>-23.5615</td>
-<td>-46.734983</td>
-<td>786.000000&lt;br&gt;</td>
-</tr>
-</tbody>
-</table>
-<p>140 rows × 81 columns</p>
-</div>
+<small>shape: (5, 4)</small><table border="1" class="dataframe"><thead><tr><th>time</th><th>AOD_440nm</th><th>AOD_550nm</th><th>AOD_675nm</th></tr><tr><td>str</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>"2010-10-12 12:00:00"</td><td>0.121822</td><td>0.087688</td><td>0.071906</td></tr><tr><td>"2010-10-13 12:00:00"</td><td>0.239659</td><td>0.169831</td><td>0.128913</td></tr><tr><td>"2010-10-14 12:00:00"</td><td>0.828402</td><td>0.579552</td><td>0.412271</td></tr><tr><td>"2010-10-16 12:00:00"</td><td>0.571732</td><td>0.421634</td><td>0.31229</td></tr><tr><td>"2010-10-17 12:00:00"</td><td>0.875544</td><td>0.673564</td><td>0.516165</td></tr></tbody></table></div>
 </div>
 </div>
 </div>
@@ -1364,6 +1429,10 @@ df.columns</div>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../getting_started/">
+      
+      
+        <link rel="next" href="../broadband/">
       
       
         
@@ -19,7 +23,7 @@
     
     
       
-        <title>Teste - pyAERONET</title>
+        <title>Inversion Parameters - pyAERONET</title>
       
     
     
@@ -69,11 +73,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#abrindo-arquivo-csv" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -106,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Teste
+              Inversion Parameters
             
           </span>
         </div>
@@ -279,10 +278,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../retrieval/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -298,6 +304,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -512,25 +519,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#abrindo-arquivo-csv" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Abrindo arquivo csv
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -546,23 +534,196 @@
 
 
 
-  <h1>Teste</h1>
+  <h1>Inversion Parameters</h1>
 
-<h2 id="abrindo-arquivo-csv">Abrindo arquivo csv</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Sao_Paulo_AOD20.csv&#39;</span><span class="p">)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;AOD_500nm&#39;</span><span class="p">,</span> <span class="s1">&#39;AERONET_Site&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">df_exemplo</span>
-</code></pre></div>
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (4, 3)</small><table border="1" class="dataframe"><thead><tr><th>time</th><th>AOD_500nm</th><th>AERONET_Site</th></tr><tr><td>str</td><td>f64</td><td>str</td></tr></thead><tbody><tr><td>&quot;2010-10-12 12:00:00&quot;</td><td>0.099469</td><td>&quot;Sao_Paulo&quot;</td></tr><tr><td>&quot;2010-10-13 12:00:00&quot;</td><td>0.195643</td><td>&quot;Sao_Paulo&quot;</td></tr><tr><td>&quot;2010-10-14 12:00:00&quot;</td><td>0.676282</td><td>&quot;Sao_Paulo&quot;</td></tr><tr><td>&quot;2010-10-16 12:00:00&quot;</td><td>0.481589</td><td>&quot;Sao_Paulo&quot;</td></tr></tbody></table></div>
+<p style="text-align: justify;">
+Abaixo segue uma tabela de algumas variáveis que podem ser obtidas das estações AERONET.
+Os prefixos terminados estão terminados em valores numéricos, sendo 10,15 e 20, os níveis de recuperação.
+Os dados de nível 1, são dados brutos, dados de nível 1,5 com filtro de nuvens, enquanto dados de nível 2 com correções de medições.
+</p>
+
+<p><code>var</code></p>
+<table>
+<thead>
+<tr>
+<th>Variables (parameter <code>vars</code>)</th>
+<th>Name Variables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AOD10</td>
+<td>Aerosol Optical Depth Level 1.0</td>
+</tr>
+<tr>
+<td>AOD15</td>
+<td>Aerosol Optical Depth Level 1.5</td>
+</tr>
+<tr>
+<td>AOD20</td>
+<td>Aerosol Optical Depth Level 2.0</td>
+</tr>
+<tr>
+<td>SDA10</td>
+<td>SDA Retrieval Level 1.0</td>
+</tr>
+<tr>
+<td>SDA15</td>
+<td>SDA Retrieval Level 1.5</td>
+</tr>
+<tr>
+<td>SDA20</td>
+<td>SDA Retrieval Level 2.0</td>
+</tr>
+<tr>
+<td>TOT10</td>
+<td>Total Optical Depth based on AOD Level 1.0 (all points only)</td>
+</tr>
+<tr>
+<td>TOT15</td>
+<td>Total Optical Depth based on AOD Level 1.5 (all points only)</td>
+</tr>
+<tr>
+<td>TOT20</td>
+<td>Total Optical Depth based on AOD Level 2.0 (all points only)</td>
+</tr>
+<tr>
+<td>LWN10</td>
+<td>Normalized Water Leaving Radiances Level 1.0</td>
+</tr>
+<tr>
+<td>LWN15</td>
+<td>Normalized Water Leaving Radiances Level 1.5</td>
+</tr>
+<tr>
+<td>LWN20 (not yet available)</td>
+<td>Normalized Water Leaving Radiances Level 2.0</td>
+</tr>
+<tr>
+<td>ZEN00</td>
+<td>Raw Zenith Sky Scan Radiance</td>
+</tr>
+<tr>
+<td>ALM00</td>
+<td>Raw Almucantar Sky Scan Radiance</td>
+</tr>
+<tr>
+<td>HYB00</td>
+<td>Raw Hybrid Sky Scan Radiance</td>
+</tr>
+<tr>
+<td>PPL00</td>
+<td>Raw Principal Plane Sky Scan Radiance</td>
+</tr>
+<tr>
+<td>PPP00</td>
+<td>Raw Polarized Principal Plane Sky Scan Radiance and Degree of Polarization</td>
+</tr>
+<tr>
+<td>ALP00</td>
+<td>Raw Polarized Almucantar Sky Scan Radiance and Degree of Polarization</td>
+</tr>
+<tr>
+<td>HYP00</td>
+<td>Raw Polarized Hybrid Sky Scan Radiance and Degree of Polarization</td>
+</tr>
+</tbody>
+</table>
+<p>Here are some vars like asymetry factor radiative forcing and others.</p>
+<p><code>inversion_type</code></p>
+<table>
+<thead>
+<tr>
+<th>Values (Inversion type Parameter)</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALM15</td>
+<td>Level 1.5 Almucantar Retrievals</td>
+</tr>
+<tr>
+<td>ALM20</td>
+<td>Level 2.0 Almucantar Retrievals</td>
+</tr>
+<tr>
+<td>HYB15</td>
+<td>Level 1.5 Hybrid Retrievals</td>
+</tr>
+<tr>
+<td>HYB20</td>
+<td>Level 2.0 Hybrid Retrievals</td>
+</tr>
+</tbody>
+</table>
+<p>Here are explanation of vars, its necessary use the <strong><em>inversion type</em></strong> for choise any var bellow:</p>
+<table>
+<thead>
+<tr>
+<th>Data Types</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIZ</td>
+<td>Size distribution</td>
+</tr>
+<tr>
+<td>RIN</td>
+<td>Refractive indicies (real and imaginary)</td>
+</tr>
+<tr>
+<td>CAD</td>
+<td>Coincident AOT data with almucantar retrieval</td>
+</tr>
+<tr>
+<td>VOL</td>
+<td>Volume concentration, volume mean radius, effective radius and standard deviation</td>
+</tr>
+<tr>
+<td>TAB</td>
+<td>AOT absorption</td>
+</tr>
+<tr>
+<td>AOD</td>
+<td>AOT extinction</td>
+</tr>
+<tr>
+<td>SSA</td>
+<td>Single scattering albedo</td>
+</tr>
+<tr>
+<td>ASY</td>
+<td>Asymmetry factor</td>
+</tr>
+<tr>
+<td>FRC</td>
+<td>Radiative Forcing</td>
+</tr>
+<tr>
+<td>LID</td>
+<td>Lidar and Depolarization Ratios</td>
+</tr>
+<tr>
+<td>FLX</td>
+<td>Spectral flux</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td>All of the above retrievals (SIZ to FLUX) in one file</td>
+</tr>
+<tr>
+<td>PFN</td>
+<td>Phase function (available for only all points data format: AVG=10)</td>
+</tr>
+<tr>
+<td>U27</td>
+<td>Estimation of Sensitivity to 27 Input Uncertainty Variations (available for only all points data format: AVG=10 and ALM20 and HYB20)</td>
+</tr>
+</tbody>
+</table>
 
 
 
