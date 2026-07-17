@@ -3,15 +3,12 @@ site_name: pyAERONET
 theme:
   name: material
   palette:
-    # Configuração do Modo Claro (Light)
     - scheme: default
       primary: black
       accent: indigo
       toggle:
         icon: material/brightness-7
         name: Mudar para modo escuro
-
-    # Configuração do Modo Escuro (Dark/Black)
     - scheme: slate
       primary: black
       accent: indigo
@@ -21,11 +18,30 @@ theme:
 
 plugins:
   - search          
-  - mkdocs-jupyter
+  - mkdocs-jupyter 
+
+# ADICIONE ESTA SEÇÃO PARA HABILITAR ABAS E HIGHLIGHT DE CÓDIGO
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+
 nav:
-  - Home: index.md
-  - Inversion: inversion.md
-  - How to Install: install.md
-  - Until functions: read.ipynb
-  - User Guide (Download): teste.ipynb
-  - Calculate Broadband variables: broadband.ipynb
+  - Home: home.md
+  - Getting Started: getting_started.md
+  - Inversion Parameters: retrieval.md
+  - Some examples: broadband.ipynb
+  - List Variables in each File: list_variables.md
+  - Functions: 
+    - pyAERONET.GetDataAERONET: functions/get_data.md
+    - pyAERONET.calcular_broadband_aeronet: functions/calc_broadband.md
+    - pyAERONET.compute_AOD_550_polars: functions/compute_aod.md
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
