@@ -1,4 +1,3 @@
-```markdown
 # pyAERONET.calcular_broadband_aeronet
 
 Calcula as propriedades ópticas integradas em banda larga (broadband) ponderando os valores espectrais das estações AERONET com os pesos solares característicos.

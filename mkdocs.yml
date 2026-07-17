@@ -33,7 +33,7 @@ markdown_extensions:
       generic: true
 
 nav:
-  - pyAERONET: index.md
+  - About: index.md
   - Getting Started: getting_started.md
   - Inversion Parameters: retrieval.md
   - Some examples: broadband.ipynb
