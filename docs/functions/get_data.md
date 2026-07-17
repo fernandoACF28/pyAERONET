@@ -15,13 +15,13 @@ Realiza o download de dados de estações da rede AERONET (NASA) de acordo com o
 *   **end_date** : *str*
     Data de fim do período desejado no formato `YYYY-MM-DD`.
 *   **vars** : *str*.
-    Nome da variável ou nível do produto AERONET a ser baixado (ex: `'AOD10'`, `'AOD15'`, `'AOD20'`)[[source]](retrieval.md).
+    Nome da variável ou nível do produto AERONET a ser baixado (ex: `'AOD10'`, `'AOD15'`, `'AOD20'`)[[source]](../retrieval.md).
 *   **temporal_type** : *str*
     Resolução temporal dos dados. O pacote converte automaticamente essa entrada para os códigos da API da AERONET (`AVG`):
     *   `'all'` (AVG = 10): Todos os pontos de dados disponíveis.
     *   `'daily'` ou `'daily average'` (AVG = 20): Média diária.
 *   **inversion_type** : *str*, opcional
-    Tipo de inversão utilizada na recuperação dos dados, necessário para propriedades ópticas avançadas (ex: `'ALM15'` para Almucantar Nível 1.5 ou `'HYB20'` para Hybrid Nível 2.0)[[source]](retrieval.md).
+    Tipo de inversão utilizada na recuperação dos dados, necessário para propriedades ópticas avançadas (ex: `'ALM15'` para Almucantar Nível 1.5 ou `'HYB20'` para Hybrid Nível 2.0)[[source]](../retrieval.md).
 *   **user_name** : *str*, opcional
     Seu endereço de e-mail de contato, recomendado para requisições na plataforma da NASA.
 
