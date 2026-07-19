@@ -9,13 +9,13 @@ ser instalada utilizando gerenciador de pacotes `pip` ou `uv`ultraviolet [[sourc
 === "pip"
 
     ```bash
-    pip install https://github.com/fernandoACF27/pyAERONET.git
+    pip install git+https://github.com/fernandoACF28/pyAERONET.git
     ```
 
 === "uv"
 
     ```bash
-    uv pip install https://github.com/fernandoACF27/pyAERONET.git
+    uv pip install git+https://github.com/fernandoACF28/pyAERONET.git
     ```
 
 ## Download dos dados
