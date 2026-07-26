@@ -8,8 +8,7 @@ import pandas as pd
 import polars as pl
 from lxml import html
 from tqdm import tqdm
-
-from functions import *
+from .functions import *
 from warnings import filterwarnings
 filterwarnings('ignore')
 
