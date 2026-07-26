@@ -1,7 +1,8 @@
-To install only use ultraviolet or pip:
+To install only use that
+
 
 ``` bash 
-uv pip install git+https://github.com/fernandoACF28/pyAERO.git
+pip install git+https://github.com/fernandoACF28/pyAERONET.git
 ``` 
 
 

@@ -12,7 +12,7 @@ AErosol RObotic NETwork <a href='https://aeronet.gsfc.nasa.gov/' target='_blank'
 <ul>
   <li>Leituras da rede de fotômetros (AERONET);</li>
   <li>Download dos dados;</li>
-  <li>Funções úteis, como interpolação de <i>AOD 550 nm</i>.</li>
+  <li>Funções úteis.</li>
 </ul>
 
 

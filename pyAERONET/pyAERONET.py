@@ -1,57 +1,63 @@
 import os
 import time
+import httpx
 import random
 import requests
 import numpy as np
 import pandas as pd
+import polars as pl
+from lxml import html
 from tqdm import tqdm
+
+from functions import *
 from warnings import filterwarnings
 filterwarnings('ignore')
 
-def OrganizeTime(df):
-    try:
-        df['Date(dd:mm:yyyy)'] = pd.to_datetime(df['Date(dd:mm:yyyy)'],format ='%d:%m:%Y')
-        df['Time(hh:mm:ss)'] = pd.to_timedelta(df['Time(hh:mm:ss)'])
-        old_var,new_var = df.columns[-1], df.columns[-1][:-4]+'_'
-        df = df.rename(columns={old_var:new_var})
-        df['time'] = df['Date(dd:mm:yyyy)']+df['Time(hh:mm:ss)']
-        df = df.drop(columns=['Date(dd:mm:yyyy)','Time(hh:mm:ss)'])
-        df[new_var] = df[new_var].replace('-999.<br>',np.nan)
-        df.insert(0, 'time', df.pop('time'))
-    except:
-        df['Date_(dd:mm:yyyy)'] = pd.to_datetime(df['Date_(dd:mm:yyyy)'],format ='%d:%m:%Y')
-        df['Time_(hh:mm:ss)'] = pd.to_timedelta(df['Time_(hh:mm:ss)'])
-        old_var,new_var = df.columns[-1], df.columns[-1][:-4]+'_'
-        df = df.rename(columns={old_var:new_var})
-        df['time'] = df['Date_(dd:mm:yyyy)']+df['Time_(hh:mm:ss)']
-        df = df.drop(columns=['Date_(dd:mm:yyyy)','Time_(hh:mm:ss)'])
-        df[new_var] = df[new_var].replace('-999.<br>',np.nan)
-        df.insert(0, 'time', df.pop('time'))
-    return df
 
-def TreatmentData(path,i):
-    df = pd.read_csv(path,skiprows=i,encoding='latin1')[:-1]
-    station = df['AERONET_Site'][0]
-    var = path.split('_')[-1][:-4]
-    df = OrganizeTime(df)
-    os.remove(path)
-    df.to_csv(path,index=False)
-    del station,var
+
+class Organizer:
+    def __init__(self,path):
+        self.path = path
+        self.dataframe = None
+    def _toDateTime(self):
+        '''internal method to treat datatime'''
+        self.dataframe['Date(dd:mm:yyyy)'] = pd.to_datetime(self.dataframe['Date(dd:mm:yyyy)'],format ='%d:%m:%Y')
+        self.dataframe['Time(hh:mm:ss)'] = pd.to_timedelta(self.dataframe['Time(hh:mm:ss)'])
+        old_var,new_var = self.dataframe.columns[-1], self.dataframe.columns[-1][:-4]+'_'
+        self.dataframe = self.dataframe.rename(columns={old_var:new_var})
+        self.dataframe['time'] = self.dataframe['Date(dd:mm:yyyy)']+self.dataframe['Time(hh:mm:ss)']
+        self.dataframe = self.dataframe.drop(columns=['Date(dd:mm:yyyy)','Time(hh:mm:ss)'])
+        self.dataframe[new_var] = self.dataframe[new_var].replace('-999.<br>',np.nan)
+        self.dataframe.insert(0, 'time', self.dataframe.pop('time'))
+        return self.dataframe
+    # Organize dataframe and save
+    def treat_and_save(self,skip_rows):
+        self.dataframe = pd.read_csv(self.path,
+                        skiprows=skip_rows,
+                        encoding='latin1')[:-1]
+        self._toDateTime()
+        self.dataframe.to_csv(self.path,index=False)
 
 def RewriteTheFile(path):
-    file = open(path)
-    if len(file.read()) >= 15:
+    # checking the bytes of file
+    if os.path.exists(path) and os.path.getsize(path) > 15:
+        organizer = Organizer(path)
+        success = False
         for i in range(15):
-            try: TreatmentData(path,i)
-            except: pass 
-    else: print("the dataframe is empty")
-    file.close()
+            try:
+                organizer.treat_and_save(skip_rows=i)
+                success = True
+                break
+            except Exception as e: pass
+        if not success: print('impossible to process the file')
+            
+    else: print('the file is empty')
 
-def GetDataAERONET(station:str,
+def download(station:str,
                   start_date:str,
                   end_date:str,
                   vars:str,
-                  temporal_type:str,
+                  data_frequency:str,
                   inversion_type=None,
                   user_name=None):
     '''
@@ -59,23 +65,15 @@ def GetDataAERONET(station:str,
     start_date: start date of type: YYYY-MM-DD
     end_date: start date of type: YYYY-MM-DD
     vars: name of vars type: AOD10 or AOD15
-    temporal_type: True =All data, False = Daily Mean
+    data_frequency: 'all' for all data, 'daily' for Daily Mean
     inversion_type: inv ex: ALM15 or HYB20
     user_name: inser your e-mail to contact
     '''
-
-    if temporal_type == 'all': AVG = 10
-    elif temporal_type =='daily': AVG = 20
-    elif temporal_type =='daily average': AVG = 20
+    if data_frequency == 'all': AVG = 10
+    elif data_frequency =='daily': AVG = 20
     else: AVG = 20
 
-    def PRINTEXCEPT(vars,valid_vars):
-        print('#############################################################')
-        print(f'{vars} is not valid variable')
-        print(f'Are you sure this variable {vars} is a correct?')
-        print(f'Try: {valid_vars}')
-
-    def Download(path,station,user_name):
+    def _download(path,station,user_name):
         name_file = f'{station}_{vars}.csv'
 
         if os.path.exists(name_file): return 
@@ -93,81 +91,15 @@ def GetDataAERONET(station:str,
         progress_bar.update(1)
         return response, name_file
     
-
-    try:
-        start_date = start_date.split('-')
-        end_date = end_date.split('-')
-        YEAR_1,MONTH_1,DAY_1 = int(start_date[0]),int(start_date[1]),int(start_date[2])
-        YEAR_2,MONTH_2,DAY_2 = int(end_date[0]),int(end_date[1]),int(end_date[2])
-
-    except: print('Your data is not a valid time. Try YYYY-MM-DD.')
+    YEAR_1,MONTH_1,DAY_1,YEAR_2,MONTH_2,DAY_2 = typingDate(start_date=start_date,
+                                                           end_date=end_date)
+    PATH_DOWNLOAD = path_download(vars=vars,inversion_type=inversion_type,station=station,
+                                  AVG=AVG,YEAR_1=YEAR_1,MONTH_1=MONTH_1,DAY_1=DAY_1,
+                                  YEAR_2=YEAR_2,MONTH_2=MONTH_2,DAY_2=DAY_2)
     
-    inversion = ['SIZ', 'RIN',	'CAD', 'VOL', 'TAB', 'AOD',
-              'SSA', 'ASY', 'FRC', 'LID', 'FLX', 'ALL',
-              'PFN', 'U27']
-    aod_retrieval = ['AOD10', 'AOD15', 'AOD20',
-                    'SDA10', 'SDA15', 'SDA20',
-                    'TOT10', 'TOT15', 'TOT20']
-    zenith_radiance = ['ZEN00']
-
-    normalize_water = ['LWN10','LWN15','LWN20']
-
-    sky_scan_measurements = ['ALM00','HYB00','PPL00',
-                             'PPP00','ALP00', 'HYP00']
-    all_vars = inversion+aod_retrieval+zenith_radiance+normalize_water+sky_scan_measurements
-
-    if vars in inversion:
-        inversions_types = ['ALM15','ALM20','HYB15','HYB20']
-        if inversion_type == None: 
-            print(f'You need define type of inversion: \n{inversions_types}')
-        else:
-            try:PATH_DOWNLOAD = ['https://aeronet.gsfc.nasa.gov/'
-                'cgi-bin/print_web_data_inv_v3?'
-                f'site={station}'
-                f'&year={YEAR_1}&month={MONTH_1}&day={DAY_1}&'
-                f'year2={YEAR_2}&month2={MONTH_2}&day2={DAY_2}'
-                f'&product={vars}&AVG={AVG}&{inversion_type}=1']
-            except Exception as e: print(e)
-
-    elif vars in aod_retrieval:
-        try:PATH_DOWNLOAD = ['https://aeronet.gsfc.nasa.gov/'
-            'cgi-bin/print_web_data_v3?'
-            f'site={station}'
-            f'&year={YEAR_1}&month={MONTH_1}&day={DAY_1}&'
-            f'year2={YEAR_2}&month2={MONTH_2}&day2={DAY_2}'
-            f'&{vars}=1&AVG={AVG}']
-        except Exception as e: print(e)
-
-    elif vars in zenith_radiance:
-        try:PATH_DOWNLOAD = ['https://aeronet.gsfc.nasa.gov/'
-            'cgi-bin/print_web_data_zenith_radiance_v3?'
-            f'site={station}'
-            f'&year={YEAR_1}&month={MONTH_1}&day={DAY_1}&'
-            f'year2={YEAR_2}&month2={MONTH_2}&day2={DAY_2}'
-            f'&{vars}=1&AVG={AVG}']
-        except Exception as e: print(e)
-    elif vars in normalize_water:
-        try:PATH_DOWNLOAD = ['https://aeronet.gsfc.nasa.gov/'
-            'cgi-bin/print_web_data_v3?'
-            f'site={station}'
-            f'&year={YEAR_1}&month={MONTH_1}&day={DAY_1}&'
-            f'year2={YEAR_2}&month2={MONTH_2}&day2={DAY_2}'
-            f'&{vars}=1&AVG={AVG}&if_no_html=1']
-        except Exception as e: print(e)
-    elif vars in sky_scan_measurements:
-        try:PATH_DOWNLOAD = ['https://aeronet.gsfc.nasa.gov/'
-            'cgi-bin/print_web_data_raw_sky_v3?'
-            f'site={station}'
-            f'&year={YEAR_1}&month={MONTH_1}&day={DAY_1}&'
-            f'year2={YEAR_2}&month2={MONTH_2}&day2={DAY_2}'
-            f'&{vars}=1&AVG={AVG}']
-        except Exception as e: print(e)
-    
-    else: PRINTEXCEPT(vars,all_vars)
-
     with tqdm(total=3, desc='downloading your data') as progress_bar:
-        try: 
-            response,name_file = Download(PATH_DOWNLOAD[0],station,user_name)
+        try:
+            response,name_file = _download(PATH_DOWNLOAD[0],station,user_name)
             RewriteTheFile(name_file)
         except requests.exceptions.HTTPError as errh:
             print(f"Erro de HTTP: {errh}")
@@ -185,29 +117,86 @@ def GetDataAERONET(station:str,
         progress_bar.set_description('Finish Download')
 
 
-import numpy as np 
-import polars as pl
+def view_data(station:str,
+                  start_date:str,
+                  end_date:str,
+                  vars:str,
+                  data_frequency:str,
+                  inversion_type=None):
+    '''
+    station: Name of your station
+    start_date: start date of type: YYYY-MM-DD
+    end_date: start date of type: YYYY-MM-DD
+    vars: name of vars type: AOD10 or AOD15
+    data_frequency: 'all' for all data, 'daily' for Daily Mean
+    inversion_type: inv ex: ALM15 or HYB20
+    user_name: inser your e-mail to contact
+    '''
+    if data_frequency == 'all': AVG = 10
+    elif data_frequency =='daily': AVG = 20
+    else: AVG = 20
+    def get_PI_contact(rows):
+        return rows[5].split('Contact:')[1].strip()
+    def fetch_aeronet_data(path):
+        response = httpx.get(path)
+        if response.status_code == 200:
+            return response.text
+        else:
+            print(f'Erro na requisição: {response.status_code}')
+            return None
+    def ViewDataAERONET(path):
+        data = fetch_aeronet_data(path)
+        if not data:
+            return None
+        tree = html.fromstring(data)
+        texto = tree.text_content()
+        linhas_iniciais = texto.split('\n', 7)
+        PI = ""
+        if len(linhas_iniciais) >= 7:
+            try: PI = get_PI_contact(linhas_iniciais)
+            except:   print('Verify the name of principal investigator to citate')
+        else: 
+            print('There are no data in these period')
+            return None
+        df_polars = pl.read_csv(
+            texto.encode('utf-8'), 
+            skip_rows=6, 
+            separator=',',
+            ignore_errors=True,
+            infer_schema_length=10000 
+        )
+        # insert principal invertigator
+        df_polars = df_polars.with_columns(pl.lit(PI).alias('Principal_Investigator'))
+        # return dataframe
+        return df_polars.to_pandas()
+
+    YEAR_1,MONTH_1,DAY_1,YEAR_2,MONTH_2,DAY_2 = typingDate(start_date=start_date,
+                                                               end_date=end_date)
+    PATH_DOWNLOAD = path_download(vars=vars,inversion_type=inversion_type,station=station,
+                                      AVG=AVG,YEAR_1=YEAR_1,MONTH_1=MONTH_1,DAY_1=DAY_1,
+                                      YEAR_2=YEAR_2,MONTH_2=MONTH_2,DAY_2=DAY_2)
+
+    return ViewDataAERONET(PATH_DOWNLOAD[0])
 
 
-
-def compute_AOD_550_polars(df,
+def compute_AOD550nm(df,
                     columns_aod=['AOD_440nm','AOD_500nm','AOD_675nm'],
                     wavelenght_nm=[440,500,675],
                     return_columns=None):
     ''' 
-    Interpola a AOD para 550 nm usando o modelo log-log quadrático de Eck et al.,
+    interpolate AOD to 550 nm using model quadratic log de Eck et al.,
     (https://doi.org/10.1029/1999JD900923).
     ln AOD = beta_2x(ln lambda)**2+beta_1x(ln lambda)+beta_0 
-    Parâmetros:
-    - df: DataFrame com colunas de AOD
-    - columns_aod: lista com os nomes das colunas de AOD (ex: ['AOD_440nm', 'AOD_500nm', 'AOD_675nm'])
-    - comprimentos_onda_nm: lista com os comprimentos de onda correspondentes às colunas (ex: [440, 500, 675])
-    Retorna:
-    - Uma cópia do DataFrame com a coluna: 'AOD_550nm'
+    Parameters:
+    - df: dataframe with columns of AOD
+    - columns_aod:  list with name the columns of AOD (ex: ['AOD_440nm', 'AOD_500nm', 'AOD_675nm'])
+    - wavelenght_nm: list of corresponding wavelenght with columns (ex: [440, 500, 675])
+    return:
+    - copy of dataframe with AOD 550nm: 'AOD_550nm'
     '''
-
+    # converting to polars to acelerate the compute
     if type(df) is not pl.dataframe.frame.DataFrame:
-        print('You need open your dataframe with polars')
+        df = pl.from_pandas(df)
     # filtering with none values
     df = df.with_columns(pl.col(columns_aod).replace(-999.0,None))
     # calculate log of aod values
@@ -225,49 +214,53 @@ def compute_AOD_550_polars(df,
     if return_columns is not None:
         df_new_2 = df_new_2.select(pl.col(return_columns))
 
-    return df_new_2
+    return df_new_2.to_pandas()
 
 def Select(df:pl.dataframe.frame.DataFrame,vars_return:list):
     return df.select(pl.col(vars_return))
 
 
 PESOS_AERONET = {
-    "440": 1884.0,  
-    "675": 1475.0,  
-    "870": 963.0,   
-    "1020": 733.0   
+    '440': 1884.0,  
+    '675': 1475.0,
+    '870': 963.0,
+    '1020': 733.0
 }
 
-def calcular_broadband_aeronet(df: pl.DataFrame) -> pl.DataFrame:
+def compute_broadband(dataframe):
     soma_pesos = sum(PESOS_AERONET.values())
 
-    # Cálculo Ponderado do Single Scattering Albedo
+    # converting to polars to acelerate the compute
+    if type(dataframe) is not pl.dataframe.frame.DataFrame:
+        dataframe = pl.from_pandas(dataframe)
+    
+    # compute single scattering albedo
     ssa_expr = (
-        (pl.col("Single_Scattering_Albedo[440nm]") * PESOS_AERONET["440"]) +
-        (pl.col("Single_Scattering_Albedo[675nm]") * PESOS_AERONET["675"]) +
-        (pl.col("Single_Scattering_Albedo[870nm]") * PESOS_AERONET["870"]) +
-        (pl.col("Single_Scattering_Albedo[1020nm]") * PESOS_AERONET["1020"])
+        (pl.col('Single_Scattering_Albedo[440nm]') * PESOS_AERONET['440']) +
+        (pl.col('Single_Scattering_Albedo[675nm]') * PESOS_AERONET['675']) +
+        (pl.col('Single_Scattering_Albedo[870nm]') * PESOS_AERONET['870']) +
+        (pl.col('Single_Scattering_Albedo[1020nm]') * PESOS_AERONET['1020'])
     ) / soma_pesos
 
-    # Cálculo Ponderado do Fator de Assimetria
+    # compute asymmetry factor
     asy_expr = (
-        (pl.col("Asymmetry_Factor-Total[440nm]") * PESOS_AERONET["440"]) +
-        (pl.col("Asymmetry_Factor-Total[675nm]") * PESOS_AERONET["675"]) +
-        (pl.col("Asymmetry_Factor-Total[870nm]") * PESOS_AERONET["870"]) +
-        (pl.col("Asymmetry_Factor-Total[1020nm]") * PESOS_AERONET["1020"])
+        (pl.col('Asymmetry_Factor-Total[440nm]') * PESOS_AERONET['440']) +
+        (pl.col('Asymmetry_Factor-Total[675nm]') * PESOS_AERONET['675']) +
+        (pl.col('Asymmetry_Factor-Total[870nm]') * PESOS_AERONET['870']) +
+        (pl.col('Asymmetry_Factor-Total[1020nm]') * PESOS_AERONET['1020'])
     ) / soma_pesos
 
-    # Cálculo Ponderado do Albedo de Superfície (respeitando a sua string [m])
+    # compute broadband surface albedo
     albedo_expr = (
-        (pl.col("Surface_Albedo[440m]") * PESOS_AERONET["440"]) +
-        (pl.col("Surface_Albedo[675m]") * PESOS_AERONET["675"]) +
-        (pl.col("Surface_Albedo[870m]") * PESOS_AERONET["870"]) +
-        (pl.col("Surface_Albedo[1020m]") * PESOS_AERONET["1020"])
+        (pl.col('Surface_Albedo[440m]') * PESOS_AERONET['440']) +
+        (pl.col('Surface_Albedo[675m]') * PESOS_AERONET['675']) +
+        (pl.col('Surface_Albedo[870m]') * PESOS_AERONET['870']) +
+        (pl.col('Surface_Albedo[1020m]') * PESOS_AERONET['1020'])
     ) / soma_pesos
 
-    # Retorna o DataFrame original com 3 novas colunas prontas para o libRadtran
-    return df.with_columns([
-        ssa_expr.alias("ssa_broadband"),
-        asy_expr.alias("asy_broadband"),
-        albedo_expr.alias("surface_albedo_broadband")
-    ])
+    # return broadband variables
+    return dataframe.with_columns([
+        ssa_expr.alias('ssa_broadband'),
+        asy_expr.alias('asy_broadband'),
+        albedo_expr.alias('surface_albedo_broadband')
+    ]).to_pandas()
