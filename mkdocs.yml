@@ -36,12 +36,14 @@ nav:
   - About: index.md
   - Getting Started: getting_started.md
   - Inversion Parameters: retrieval.md
-  - Some examples: broadband.ipynb
+  - Some examples: examples.ipynb
   - List Variables in each File: list_variables.md
   - Functions: 
-    - pyAERONET.GetDataAERONET: functions/get_data.md
-    - pyAERONET.calcular_broadband_aeronet: functions/calc_broadband.md
-    - pyAERONET.compute_AOD_550_polars: functions/compute_aod.md
+    - pyAERONET.download: functions/get_data.md
+    - pyAERONET.view_data: functions/view_data.md
+    - pyAERONET.compute_broadband: functions/calc_broadband.md
+    - pyAERONET.compute_AOD550nm: functions/compute_aod.md
+
 
 extra_javascript:
   - javascripts/mathjax.js

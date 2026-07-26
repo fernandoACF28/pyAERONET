@@ -1,4 +1,4 @@
-# pyAERONET.calcular_broadband_aeronet
+# pyAERONET.compute_broadband
 
 Calcula as propriedades ópticas integradas em banda larga (broadband) ponderando os valores espectrais das estações AERONET com os pesos solares característicos.
 
@@ -6,16 +6,16 @@ Esta função é particularmente útil para preparar dados de entrada para model
 
 ---
 
-`calcular_broadband_aeronet(df)`
+`compute_broadband(df)`
 
 **Parâmetros:**
 
-*   **df** : *polars.DataFrame*
+*   **df** : *polars.DataFrame; pandas.DataFrame*
     DataFrame contendo os dados invertidos da AERONET. As colunas devem obrigatoriamente incluir os dados de *Single Scattering Albedo*, *Asymmetry Factor* e *Surface Albedo* nos comprimentos de onda de 440, 675, 870 e 1020 nm.
 
 **Retorna:**
 
-*   **df_out** : *polars.DataFrame*
+*   **df_out** : *polars.DataFrame; pandas.DataFrame*
     Retorna o DataFrame original expandido com 3 novas colunas resultantes do cálculo ponderado:
     *   `ssa_broadband`: Albedo de Espalhamento Simples em banda larga.
     *   `asy_broadband`: Fator de Assimetria em banda larga.

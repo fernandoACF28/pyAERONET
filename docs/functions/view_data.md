@@ -1,10 +1,10 @@
-# pyAERONET.download
+# pyAERONET.view_data
 
-Realiza o download de dados de estações da rede AERONET (NASA) de acordo com o tipo de dado, período e resolução temporal desejada.
+Realiza a visualização de dados de estações da rede AERONET (NASA) de acordo com o tipo de dado, período e resolução temporal desejada.
 
 ---
 
-`download(station, start_date, end_date, vars, temporal_type, inversion_type, user_name)`
+`view_data(station, start_date, end_date, vars, temporal_type, inversion_type, user_name)`
 
 **Parâmetros:**
 
@@ -28,12 +28,9 @@ Realiza o download de dados de estações da rede AERONET (NASA) de acordo com o
 **Exemplo de uso:**
 
 ```python
-pyAERONET.download(
-    station='Sao_Paulo',
-    start_date='2010-10-10',
-    end_date='2012-10-10',
-    vars='AOD20',
-    temporal_type='all',
-    user_name='seu_email@dominio.com'
-)
+pyAERONET.view_data(station='Sao_Paulo',
+         start_date='2010-01-01',
+         end_date='2014-01-01',
+         vars='AOD20',
+         data_frequency='all').head(10)
 ```

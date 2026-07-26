@@ -1,25 +1,25 @@
 # pyAERONET
 
-pyAERONET are useful package for download aeronet datas.
+pyAERONET is a useful package for downloading AERONET data.
 
-The documentation: https://fernandoacf28.github.io/pyAERONET/
+The documentation: [https://fernandoacf28.github.io/pyAERONET/](https://fernandoacf28.github.io/pyAERONET/)
 
+<details>
+<summary><b>pip</b></summary>
 
+```bash
+pip install git+https://github.com/fernandoACF28/pyAERONET.git
+pip install --upgrade --force-reinstall git+https://github.com/fernandoACF28/pyAERONET.git
+```
 
-=== "pip"
+</details>
 
-    ```bash
-    pip install git+https://github.com/fernandoACF28/pyAERONET.git
-    ```
-    ```bash
-    pip install --upgrade --force-reinstall git+https://github.com/fernandoACF28/pyAERONET.git
-    ```
+<details>
+<summary><b>uv</b></summary>
 
-=== "uv"
+```bash
+uv pip install git+https://github.com/fernandoACF28/pyAERONET.git
+uv pip install --upgrade --force-reinstall git+https://github.com/fernandoACF28/pyAERONET.git
+```
 
-    ```bash
-    uv pip install git+https://github.com/fernandoACF28/pyAERONET.git
-    ```
-    ```bash
-    uv pip install --upgrade --force-reinstall git+https://github.com/fernandoACF28/pyAERONET.git
-    ```
+</details>

@@ -21,7 +21,7 @@ ser instalada utilizando gerenciador de pacotes `pip` ou `uv`ultraviolet [[sourc
 ## Download dos dados
 
 Abaixo está um exemplo de como realizar o download do arquivo `csv` 
-, ler e processar os dados de aerossóis diretamente no Python [`pyAERONET.GetDataAERONET()`](functions/get_data.md).
+, ler e processar os dados de aerossóis diretamente no Python [`pyAERONET.download()`](functions/get_data.md).
 
 
 === "Python"
@@ -32,10 +32,10 @@ Abaixo está um exemplo de como realizar o download do arquivo `csv`
 
     `pyAERONET` é uma classe que contém funções.
     A função para download é 
-    `GetDataAERONET`
+    `download`
 
     ```python
-    pyAERONET.GetDataAERONET(station='Sao_Paulo',start_date='2010-10-10',
+    pyAERONET.download(station='Sao_Paulo',start_date='2010-10-10',
                         end_date='2012-10-10',
                         vars='AOD20',
                         temporal_type='ALL',
