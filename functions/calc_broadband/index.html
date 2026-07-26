@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://fernandoACF28.github.io/pyAERONET/functions/calc_broadband/">
       
       
-        <link rel="prev" href="../get_data/">
+        <link rel="prev" href="../view_data/">
       
       
         <link rel="next" href="../compute_aod/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>pyAERONET.calcular_broadband_aeronet - pyAERONET</title>
+        <title>pyAERONET.compute_broadband - pyAERONET</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pyaeronetcalcular_broadband_aeronet" class="md-skip">
+        <a href="#pyaeronetcompute_broadband" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pyAERONET.calcular_broadband_aeronet
+              pyAERONET.compute_broadband
             
           </span>
         </div>
@@ -315,14 +315,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../broadband/" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Some examples
+    Some Examples
   
 
     
@@ -425,7 +425,35 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.GetDataAERONET
+    pyAERONET.download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../view_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyAERONET.view_data
   
 
     
@@ -462,7 +490,7 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.calcular_broadband_aeronet
+    pyAERONET.compute_broadband
   
 
     
@@ -491,7 +519,7 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.compute_AOD_550_polars
+    pyAERONET.compute_AOD550nm
   
 
     
@@ -547,19 +575,19 @@
 
 
 
-<h1 id="pyaeronetcalcular_broadband_aeronet">pyAERONET.calcular_broadband_aeronet</h1>
+<h1 id="pyaeronetcompute_broadband">pyAERONET.compute_broadband</h1>
 <p>Calcula as propriedades ópticas integradas em banda larga (broadband) ponderando os valores espectrais das estações AERONET com os pesos solares característicos.</p>
 <p>Esta função é particularmente útil para preparar dados de entrada para modelos de transferência radiativa, como o libRadtran.</p>
 <hr />
-<p><code>calcular_broadband_aeronet(df)</code></p>
+<p><code>compute_broadband(df)</code></p>
 <p><strong>Parâmetros:</strong></p>
 <ul>
-<li><strong>df</strong> : <em>polars.DataFrame</em>
+<li><strong>df</strong> : <em>polars.DataFrame; pandas.DataFrame</em>
     DataFrame contendo os dados invertidos da AERONET. As colunas devem obrigatoriamente incluir os dados de <em>Single Scattering Albedo</em>, <em>Asymmetry Factor</em> e <em>Surface Albedo</em> nos comprimentos de onda de 440, 675, 870 e 1020 nm.</li>
 </ul>
 <p><strong>Retorna:</strong></p>
 <ul>
-<li><strong>df_out</strong> : <em>polars.DataFrame</em>
+<li><strong>df_out</strong> : <em>polars.DataFrame; pandas.DataFrame</em>
     Retorna o DataFrame original expandido com 3 novas colunas resultantes do cálculo ponderado:<ul>
 <li><code>ssa_broadband</code>: Albedo de Espalhamento Simples em banda larga.</li>
 <li><code>asy_broadband</code>: Fator de Assimetria em banda larga.</li>

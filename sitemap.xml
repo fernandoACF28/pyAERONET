@@ -9,6 +9,10 @@
          <lastmod>2026-07-26</lastmod>
     </url>
     <url>
+         <loc>https://fernandoACF28.github.io/pyAERONET/examples/</loc>
+         <lastmod>2026-07-26</lastmod>
+    </url>
+    <url>
          <loc>https://fernandoACF28.github.io/pyAERONET/getting_started/</loc>
          <lastmod>2026-07-26</lastmod>
     </url>
@@ -38,6 +42,10 @@
     </url>
     <url>
          <loc>https://fernandoACF28.github.io/pyAERONET/functions/get_data/</loc>
+         <lastmod>2026-07-26</lastmod>
+    </url>
+    <url>
+         <loc>https://fernandoACF28.github.io/pyAERONET/functions/view_data/</loc>
          <lastmod>2026-07-26</lastmod>
     </url>
 </urlset>

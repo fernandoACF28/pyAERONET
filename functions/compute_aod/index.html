@@ -23,7 +23,7 @@
     
     
       
-        <title>pyAERONET.compute_AOD_550_polars - pyAERONET</title>
+        <title>pyAERONET.compute_AOD550nm - pyAERONET</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pyaeronetcompute_aod_550_polars" class="md-skip">
+        <a href="#pyaeronetcompute_aod550nm" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pyAERONET.compute_AOD_550_polars
+              pyAERONET.compute_AOD550nm
             
           </span>
         </div>
@@ -313,14 +313,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../broadband/" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Some examples
+    Some Examples
   
 
     
@@ -423,7 +423,35 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.GetDataAERONET
+    pyAERONET.download
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../view_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyAERONET.view_data
   
 
     
@@ -451,7 +479,7 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.calcular_broadband_aeronet
+    pyAERONET.compute_broadband
   
 
     
@@ -488,7 +516,7 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.compute_AOD_550_polars
+    pyAERONET.compute_AOD550nm
   
 
     
@@ -545,15 +573,15 @@
 
 
 
-<h1 id="pyaeronetcompute_aod_550_polars">pyAERONET.compute_AOD_550_polars</h1>
+<h1 id="pyaeronetcompute_aod550nm">pyAERONET.compute_AOD550nm</h1>
 <p>Interpola a Profundidade Óptica dos Aerossóis (AOD) para 550 nm utilizando o modelo log-log quadrático de <a href="https://doi.org/10.1029/1999JD900923">Eck et al. (1999)</a>.</p>
 <p>A interpolação baseia-se na seguinte equação polinomial de segunda ordem:</p>
 <div class="arithmatex">\[\ln(\text{AOD}) = \beta_2(\ln \lambda)^2 + \beta_1(\ln \lambda) + \beta_0\]</div>
 <hr />
-<p><code>compute_AOD_550_polars(df, columns_aod, wavelenght_nm, return_columns)</code></p>
+<p><code>compute_AOD550nm(df, columns_aod, wavelenght_nm, return_columns)</code></p>
 <p><strong>Parâmetros:</strong></p>
 <ul>
-<li><strong>df</strong> : <em>polars.DataFrame</em>
+<li><strong>df</strong> : <em>pandas.DataFrame</em>
     DataFrame do Polars contendo os dados com as colunas de AOD originais.</li>
 <li><strong>columns_aod</strong> : <em>list</em>, default <code>['AOD_440nm','AOD_500nm','AOD_675nm']</code>
     Lista com os nomes das colunas de AOD presentes no DataFrame que serão utilizadas para o ajuste.</li>
@@ -564,7 +592,7 @@
 </ul>
 <p><strong>Retorna:</strong></p>
 <ul>
-<li><strong>df_out</strong> : <em>polars.DataFrame</em>
+<li><strong>df_out</strong> : <em>pandas.DataFrame</em>
     Uma cópia do DataFrame original com a adição de uma nova coluna chamada <code>AOD_550nm</code>.</li>
 </ul>
 

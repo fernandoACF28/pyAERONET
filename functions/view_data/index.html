@@ -8,31 +8,31 @@
       
       
       
-        <link rel="canonical" href="https://fernandoACF28.github.io/pyAERONET/getting_started/">
+        <link rel="canonical" href="https://fernandoACF28.github.io/pyAERONET/functions/view_data/">
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../get_data/">
       
       
-        <link rel="next" href="../retrieval/">
+        <link rel="next" href="../calc_broadband/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Getting Started - pyAERONET</title>
+        <title>pyAERONET.view_data - pyAERONET</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#pyaeronetview_data" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="pyAERONET" class="md-header__button md-logo" aria-label="pyAERONET" data-md-component="logo">
+    <a href="../.." title="pyAERONET" class="md-header__button md-logo" aria-label="pyAERONET" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              pyAERONET.view_data
             
           </span>
         </div>
@@ -216,7 +216,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="pyAERONET" class="md-nav__button md-logo" aria-label="pyAERONET" data-md-component="logo">
+    <a href="../.." title="pyAERONET" class="md-nav__button md-logo" aria-label="pyAERONET" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -234,7 +234,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -258,37 +258,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Getting Started
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
         
   
   
@@ -304,48 +277,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#download-dos-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Download dos dados
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leitura-dos-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Leitura dos dados
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -357,7 +288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../retrieval/" class="md-nav__link">
+      <a href="../../retrieval/" class="md-nav__link">
         
   
   
@@ -384,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../examples/" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         
   
   
@@ -411,7 +342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../list_variables/" class="md-nav__link">
+      <a href="../../list_variables/" class="md-nav__link">
         
   
   
@@ -435,18 +366,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -467,7 +400,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -485,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/get_data/" class="md-nav__link">
+      <a href="../get_data/" class="md-nav__link">
         
   
   
@@ -510,10 +443,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../functions/view_data/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -529,6 +471,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -541,7 +484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/calc_broadband/" class="md-nav__link">
+      <a href="../calc_broadband/" class="md-nav__link">
         
   
   
@@ -569,7 +512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../functions/compute_aod/" class="md-nav__link">
+      <a href="../compute_aod/" class="md-nav__link">
         
   
   
@@ -617,36 +560,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#download-dos-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Download dos dados
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#leitura-dos-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Leitura dos dados
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -662,59 +575,38 @@
 
 
 
-<h1 id="getting-started">Getting Started</h1>
-<p>Aqui vamos ensinar como começar utilizando a biblioteca pyAERONET.
-Primeiro é necessário realizar a instalação da biblioteca, que pode
-ser instalada utilizando gerenciador de pacotes <code>pip</code> ou <code>uv</code>ultraviolet <a href="https://docs.astral.sh/uv/guides/install-python/">[source]</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">pip</label><label for="__tabbed_1_2">uv</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/fernandoACF28/pyAERONET.git
+<h1 id="pyaeronetview_data">pyAERONET.view_data</h1>
+<p>Realiza a visualização de dados de estações da rede AERONET (NASA) de acordo com o tipo de dado, período e resolução temporal desejada.</p>
+<hr />
+<p><code>view_data(station, start_date, end_date, vars, temporal_type, inversion_type, user_name)</code></p>
+<p><strong>Parâmetros:</strong></p>
+<ul>
+<li><strong>station</strong> : <em>str</em>
+    Nome da estação AERONET (ex: <code>'Sao_Paulo'</code>).</li>
+<li><strong>start_date</strong> : <em>str</em>
+    Data de início do período desejado no formato <code>YYYY-MM-DD</code>.</li>
+<li><strong>end_date</strong> : <em>str</em>
+    Data de fim do período desejado no formato <code>YYYY-MM-DD</code>.</li>
+<li><strong>vars</strong> : <em>str</em>.
+    Nome da variável ou nível do produto AERONET a ser baixado (ex: <code>'AOD10'</code>, <code>'AOD15'</code>, <code>'AOD20'</code>)<a href="../../retrieval/">[source]</a>.</li>
+<li><strong>temporal_type</strong> : <em>str</em>
+    Resolução temporal dos dados. O pacote converte automaticamente essa entrada para os códigos da API da AERONET (<code>AVG</code>):<ul>
+<li><code>'all'</code> (AVG = 10): Todos os pontos de dados disponíveis.</li>
+<li><code>'daily'</code> ou <code>'daily average'</code> (AVG = 20): Média diária.</li>
+</ul>
+</li>
+<li><strong>inversion_type</strong> : <em>str</em>, opcional
+    Tipo de inversão utilizada na recuperação dos dados, necessário para propriedades ópticas avançadas (ex: <code>'ALM15'</code> para Almucantar Nível 1.5 ou <code>'HYB20'</code> para Hybrid Nível 2.0)<a href="../../retrieval/">[source]</a>.</li>
+<li><strong>user_name</strong> : <em>str</em>, opcional
+    Seu endereço de e-mail de contato, recomendado para requisições na plataforma da NASA.</li>
+</ul>
+<p><strong>Exemplo de uso:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pyAERONET</span><span class="o">.</span><span class="n">view_data</span><span class="p">(</span><span class="n">station</span><span class="o">=</span><span class="s1">&#39;Sao_Paulo&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>         <span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2010-01-01&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>         <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2014-01-01&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>         <span class="nb">vars</span><span class="o">=</span><span class="s1">&#39;AOD20&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>         <span class="n">data_frequency</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/fernandoACF28/pyAERONET.git
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="download-dos-dados">Download dos dados</h2>
-<p>Abaixo está um exemplo de como realizar o download do arquivo <code>csv</code> 
-, ler e processar os dados de aerossóis diretamente no Python <a href="../functions/get_data/"><code>pyAERONET.download()</code></a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pyAERONET</span>
-</code></pre></div>
-<p><code>pyAERONET</code> é uma classe que contém funções.
-A função para download é 
-<code>download</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">pyAERONET</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">station</span><span class="o">=</span><span class="s1">&#39;Sao_Paulo&#39;</span><span class="p">,</span><span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2010-10-10&#39;</span><span class="p">,</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                    <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                    <span class="nb">vars</span><span class="o">=</span><span class="s1">&#39;AOD20&#39;</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                    <span class="n">temporal_type</span><span class="o">=</span><span class="s1">&#39;ALL&#39;</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                    <span class="n">user_name</span><span class="o">=</span><span class="s1">&#39;user@gmail.br&#39;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>Finish Download: 100%|██████████| 3/3 [00:09&lt;00:00,  3.19s/it]
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="leitura-dos-dados">Leitura dos dados</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Sao_Paulo_AOD20.csv&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">df_exemplo</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;AOD_500nm&#39;</span><span class="p">,</span> <span class="s1">&#39;AERONET_Site&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">df_exemplo</span>
-</code></pre></div>
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (4, 3)</small><table border="1" class="dataframe"><thead><tr><th>time</th><th>AOD_500nm</th><th>AERONET_Site</th></tr><tr><td>str</td><td>f64</td><td>str</td></tr></thead><tbody><tr><td>&quot;2010-10-12 12:00:00&quot;</td><td>0.099469</td><td>&quot;Sao_Paulo&quot;</td></tr><tr><td>&quot;2010-10-13 12:00:00&quot;</td><td>0.195643</td><td>&quot;Sao_Paulo&quot;</td></tr><tr><td>&quot;2010-10-14 12:00:00&quot;</td><td>0.676282</td><td>&quot;Sao_Paulo&quot;</td></tr><tr><td>&quot;2010-10-16 12:00:00&quot;</td><td>0.481589</td><td>&quot;Sao_Paulo&quot;</td></tr></tbody></table></div>
 
 
 
@@ -764,12 +656,12 @@ A função para download é
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

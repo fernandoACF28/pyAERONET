@@ -14,7 +14,7 @@
         <link rel="prev" href="../../list_variables/">
       
       
-        <link rel="next" href="../calc_broadband/">
+        <link rel="next" href="../view_data/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>pyAERONET.GetDataAERONET - pyAERONET</title>
+        <title>pyAERONET.download - pyAERONET</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pyaeronetgetdataaeronet" class="md-skip">
+        <a href="#pyaeronetdownload" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pyAERONET.GetDataAERONET
+              pyAERONET.download
             
           </span>
         </div>
@@ -315,14 +315,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../broadband/" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Some examples
+    Some Examples
   
 
     
@@ -434,7 +434,7 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.GetDataAERONET
+    pyAERONET.download
   
 
     
@@ -456,6 +456,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../view_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    pyAERONET.view_data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../calc_broadband/" class="md-nav__link">
         
   
@@ -463,7 +491,7 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.calcular_broadband_aeronet
+    pyAERONET.compute_broadband
   
 
     
@@ -491,7 +519,7 @@
   <span class="md-ellipsis">
     
   
-    pyAERONET.compute_AOD_550_polars
+    pyAERONET.compute_AOD550nm
   
 
     
@@ -547,10 +575,10 @@
 
 
 
-<h1 id="pyaeronetgetdataaeronet">pyAERONET.GetDataAERONET</h1>
+<h1 id="pyaeronetdownload">pyAERONET.download</h1>
 <p>Realiza o download de dados de estações da rede AERONET (NASA) de acordo com o tipo de dado, período e resolução temporal desejada.</p>
 <hr />
-<p><code>GetDataAERONET(station, start_date, end_date, vars, temporal_type, inversion_type, user_name)</code></p>
+<p><code>download(station, start_date, end_date, vars, temporal_type, inversion_type, user_name)</code></p>
 <p><strong>Parâmetros:</strong></p>
 <ul>
 <li><strong>station</strong> : <em>str</em>
@@ -573,7 +601,7 @@
     Seu endereço de e-mail de contato, recomendado para requisições na plataforma da NASA.</li>
 </ul>
 <p><strong>Exemplo de uso:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pyAERONET</span><span class="o">.</span><span class="n">GetDataAERONET</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">pyAERONET</span><span class="o">.</span><span class="n">download</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">station</span><span class="o">=</span><span class="s1">&#39;Sao_Paulo&#39;</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">start_date</span><span class="o">=</span><span class="s1">&#39;2010-10-10&#39;</span><span class="p">,</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">end_date</span><span class="o">=</span><span class="s1">&#39;2012-10-10&#39;</span><span class="p">,</span>
