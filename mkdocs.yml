@@ -37,7 +37,7 @@ nav:
   - Getting Started: getting_started.md
   - Inversion Parameters: retrieval.md
   - Some examples: examples.ipynb
-  - List Variables in each File: list_variables.md
+  - Variables list: list_variables.md
   - Functions: 
     - pyAERONET.download: functions/get_data.md
     - pyAERONET.view_data: functions/view_data.md

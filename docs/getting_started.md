@@ -38,7 +38,7 @@ Abaixo está um exemplo de como realizar o download do arquivo `csv`
     pyAERONET.download(station='Sao_Paulo',start_date='2010-10-10',
                         end_date='2012-10-10',
                         vars='AOD20',
-                        temporal_type='ALL',
+                        data_frequency='all',
                         user_name='user@gmail.br')
     ```
 
